@@ -1,0 +1,17 @@
+<h2>
+    sidor: </h2>
+<ul>
+    <li *ngFor="let page of list">
+        <a (click)="load(page.url)">{{page.name}}</a>
+    </li>
+
+</ul>
+
+<dialog id="favDialog" #favDialog>
+    <form method="dialog">
+        <div [innerHTML]="selectedPage"></div>
+        <menu>
+            <button value="cancel">Close</button>
+        </menu>
+    </form>
+</dialog>
