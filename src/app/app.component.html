@@ -4,6 +4,9 @@
     <li *ngFor="let page of list">
         <a (click)="load(page.url)">{{page.name}}</a>
     </li>
+    <li *ngFor="let page of list">
+        <a (click)="bootstrapLoad(page.url, content)">{{page.name}}</a>
+    </li>
 
 </ul>
 
@@ -15,3 +18,19 @@
         </menu>
     </form>
 </dialog>
+
+<ng-template #content let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Testing</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    </div>
+    <div class="modal-body">
+        <div>hello mellow</div>
+        <div [innerHTML]="selectedPage"></div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
+    </div>
+</ng-template>
